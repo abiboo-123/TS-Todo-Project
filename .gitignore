@@ -3,3 +3,5 @@ dist
 .env
 .vscode
 .todo-ui
+.eslintrc.json
+.eslintignore

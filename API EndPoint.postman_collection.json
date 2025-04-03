@@ -1,0 +1,614 @@
+{
+  "info": {
+    "_postman_id": "1b769a74-3dc8-457f-950b-46584b393204",
+    "name": "API EndPoint",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "39859053",
+    "_collection_link": "https://www.postman.com/gold-meteor-793883/workspace/todo-api/collection/39859053-1b769a74-3dc8-457f-950b-46584b393204?action=share&source=collection_link&creator=39859053"
+  },
+  "item": [
+    {
+      "name": "createTask",
+      "request": {
+        "auth": {
+          "type": "inherit"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Task 5.3\",\r\n    \"description\": \"some description\",\r\n    \"completed\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "add"]
+        }
+      },
+      "response": [
+        {
+          "name": "createTask",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"testing the api\",\r\n    \"description\": \"some text to edit\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/tasks/add",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "add"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "JSON",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express",
+              "type": "text"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "69",
+              "type": "text"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"45-vA+x5v0tFh4ruzYDBW4sUUCnSE4\"",
+              "type": "text"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 12:57:46 GMT",
+              "type": "text"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "type": "text"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Task added successfully\",\n    \"id\": \"67ee85ca189a644472112812\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "getAllTasks",
+      "request": {
+        "auth": {
+          "type": "inherit"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/all?keyword=&completed=false",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "all"],
+          "query": [
+            {
+              "key": "keyword",
+              "value": ""
+            },
+            {
+              "key": "completed",
+              "value": "false"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "getAllTasks",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tasks/all",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "all"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "JSON",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express",
+              "type": "text"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "200",
+              "type": "text"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"c8-K1yzLo/1ZnZOuEe5+O8N16kuDvI\"",
+              "type": "text"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 12:59:10 GMT",
+              "type": "text"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "type": "text"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"_id\": \"67ee85ca189a644472112812\",\n        \"title\": \"testing the api\",\n        \"description\": \"some text to edit\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T12:57:46.296Z\",\n        \"updatedAt\": \"2025-04-03T12:57:46.296Z\",\n        \"__v\": 0\n    }\n]"
+        },
+        {
+          "name": "getAllTasksWithFilters",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tasks/all?keyword=&completed=false",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "all"],
+              "query": [
+                {
+                  "key": "keyword",
+                  "value": ""
+                },
+                {
+                  "key": "completed",
+                  "value": "false"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "952"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"3b8-Mlp6ZAjP0mozKPCkR+HRIdMoa1Q\""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 13:24:56 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"_id\": \"67ee89796fdcf0b07746a960\",\n        \"title\": \"Task 3\",\n        \"description\": \"some description\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T13:13:29.536Z\",\n        \"updatedAt\": \"2025-04-03T13:13:29.536Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67ee897f6fdcf0b07746a962\",\n        \"title\": \"Task 5\",\n        \"description\": \"some description\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T13:13:35.745Z\",\n        \"updatedAt\": \"2025-04-03T13:13:35.745Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67ee89896fdcf0b07746a964\",\n        \"title\": \"Task 5.1\",\n        \"description\": \"some description\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T13:13:45.425Z\",\n        \"updatedAt\": \"2025-04-03T13:13:45.425Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67ee898d6fdcf0b07746a966\",\n        \"title\": \"Task 5.2\",\n        \"description\": \"some description\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T13:13:49.670Z\",\n        \"updatedAt\": \"2025-04-03T13:13:49.670Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"67ee89926fdcf0b07746a968\",\n        \"title\": \"Task 5.3\",\n        \"description\": \"some description\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T13:13:54.572Z\",\n        \"updatedAt\": \"2025-04-03T13:13:54.572Z\",\n        \"__v\": 0\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "getTaskById",
+      "request": {
+        "auth": {
+          "type": "inherit"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "getTaskById",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tasks/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67ee85ca189a644472112812",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "JSON",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express",
+              "type": "text"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*",
+              "type": "text"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "230",
+              "type": "text"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"e6-B+M5f0SoQSQexj6YFSJxK38wQZA\"",
+              "type": "text"
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 13:00:06 GMT",
+              "type": "text"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "type": "text"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5",
+              "type": "text"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Task found\",\n    \"task\": {\n        \"_id\": \"67ee85ca189a644472112812\",\n        \"title\": \"testing the api\",\n        \"description\": \"some text to edit\",\n        \"completed\": false,\n        \"createdAt\": \"2025-04-03T12:57:46.296Z\",\n        \"updatedAt\": \"2025-04-03T12:57:46.296Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "updateTask",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"completed\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/tasks/edit/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "edit", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "updateTask",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"title\": \"testing the api\",\r\n    \"description\": \"some text form edit\",\r\n    \"completed\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/tasks/edit/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "edit", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67ee85ca189a644472112812"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "245"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"f5-G6uhbJN2ITi7vcbt/MefKsRkiEg\""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 13:11:34 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Task edited successfully\",\n    \"task\": {\n        \"_id\": \"67ee85ca189a644472112812\",\n        \"title\": \"testing the api\",\n        \"description\": \"some text form edit\",\n        \"completed\": true,\n        \"createdAt\": \"2025-04-03T12:57:46.296Z\",\n        \"updatedAt\": \"2025-04-03T13:11:34.128Z\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "deleteTask",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/delete/:id",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "delete", ":id"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "67ee85ca189a644472112812"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "deleteTask",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tasks/delete/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "delete", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "67ee85ca189a644472112812"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "39"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"27-urf4l4W7aUjEqcMghGgrIBDtf0M\""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 13:16:25 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Task deleted successfully\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "getTasksCount",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/tasks/count",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["tasks", "count"]
+        }
+      },
+      "response": [
+        {
+          "name": "getTasksCount",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/tasks/count",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "3000",
+              "path": ["tasks", "count"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "101"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"65-0c+IDnWzqQ6PO5TXs6UYgcgJ8SU\""
+            },
+            {
+              "key": "Date",
+              "value": "Thu, 03 Apr 2025 13:25:29 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Task statistics retrieved successfully\",\n    \"stats\": {\n        \"total\": 7,\n        \"completed\": 2,\n        \"incomplete\": 5\n    }\n}"
+        }
+      ]
+    }
+  ]
+}

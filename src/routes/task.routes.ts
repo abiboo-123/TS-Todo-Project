@@ -1,30 +1,15 @@
-import { Router } from "express";
-import {
-  addTodoTask,
-  getAllTodos,
-  getTodoById,
-  editTask,
-  completeTask,
-  deleteTask,
-  getCompletedTasks,
-  getInCompletedTasks,
-  unCompleteTask,
-  searchTaskByKeyword,
-  getTaskCount,
-} from "../controllers/task.controller";
+import { query, Router } from 'express';
+import { addTodoTask, getAllTodos, getTodoById, editTask, deleteTask, getTaskCount } from '../controllers/task.controller';
+import { validate } from '../middleware/validate';
+import { taskSchema, taskUpdateSchema, taskIdSchema, taskSearchSchema } from '../validations/task.schema';
 
 const router = Router();
 
-router.post("/add", addTodoTask);
-router.get("/all", getAllTodos);
-router.get("/:id", getTodoById);
-router.put("/edit/:id", editTask);
-router.put("/complete/:id", completeTask);
-router.put("/uncomplete/:id", unCompleteTask);
-router.delete("/delete/:id", deleteTask);
-router.get("/completed", getCompletedTasks);
-router.get("/incompleted", getInCompletedTasks);
-router.get("/search", searchTaskByKeyword);
-router.get("/count", getTaskCount);
+router.post('/add', validate(taskSchema), addTodoTask);
+router.get('/all', validate(taskSearchSchema, 'query'), getAllTodos);
+router.get('/count', getTaskCount);
+router.get('/:id', validate(taskIdSchema, 'params'), getTodoById);
+router.put('/edit/:id', validate(taskIdSchema, 'params'), validate(taskUpdateSchema, 'body'), editTask);
+router.delete('/delete/:id', validate(taskIdSchema, 'params'), deleteTask);
 
 export default router;
