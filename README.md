@@ -95,12 +95,14 @@ You can test all endpoints using the provided Postman collection:
 
 ```
 src/
+├── config/             # Database configuration
 ├── controllers/        # Request handlers
 ├── models/             # Mongoose schemas
 ├── routes/             # Route definitions
 ├── validations/        # Zod schemas
 ├── middlewares/        # Custom middleware
-├── index.ts            # Entry point
+├── app.ts              # Routes/app configurations
+├── server.ts           # Entry point
 ```
 
 ---
